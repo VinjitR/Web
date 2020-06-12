@@ -1,8 +1,8 @@
 import React from 'react';
 import '../App.css';
 import '../index.css';
-import { Card, CardImg, CardImgOverlay, CardBody, CardText, CardTitle } from 'reactstrap';
-
+import { Card, CardImg, CardImgOverlay, CardBody, CardText, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link} from 'react-router-dom';
 
    function RenderComm({comments}){
         if(comments==null)
@@ -27,7 +27,6 @@ import { Card, CardImg, CardImgOverlay, CardBody, CardText, CardTitle } from 're
             )
         })
         return(
-            <div className='col-12 col-md-5 m-5 '>
             <ul className="list-unstyled">
                                         <h4>
                                             Comments
@@ -35,7 +34,6 @@ import { Card, CardImg, CardImgOverlay, CardBody, CardText, CardTitle } from 're
                                         {cmts}
                 
                                     </ul>
-            </div>
 
         )
     }
@@ -45,7 +43,7 @@ import { Card, CardImg, CardImgOverlay, CardBody, CardText, CardTitle } from 're
       {
         if(dish!=null){
           return(
-            <div className="col-12 col-md-5 m-5">
+            <div className="col-12 m-1">
             <Card>
             
               <CardImg width="100%" src={dish.image} alt={dish.name} />
@@ -73,9 +71,26 @@ import { Card, CardImg, CardImgOverlay, CardBody, CardText, CardTitle } from 're
             }
 
             return(
-                <div className='row ml-7'>
+                <div className='container'>
+                  <div className="row">
+                    <Breadcrumb>
+                      <BreadcrumbItem><Link to='/menu'>Menu</Link></BreadcrumbItem>
+                      <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
+                    </Breadcrumb>
+                    <div className="col-12">
+                      <h3>Menu</h3>
+                      <hr />
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-6">
                     <RenderDish dish={props.dish}/>
-                    <RenderComm comments={props.dish.comments}/>
+                    </div>
+                    <div className="col-6">
+                    <RenderComm comments={props.comments} />
+                </div>
+                <hr/>
+                </div>
                 </div>
             )
             

@@ -69,4 +69,5 @@ address{
 
 .navbar-dark {
   background-color: rgb(21, 8, 99);
+  align-items: left;
 }
