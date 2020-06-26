@@ -1,7 +1,7 @@
 import React ,{Component} from 'react';
 import '../App.css';
 import '../index.css';
-import { Card, CardImg, CardImgOverlay, CardBody, CardText, CardTitle, Breadcrumb, BreadcrumbItem,Button,Label, Modal, ModalHeader,ModalBody,Row, Col } from 'reactstrap';
+import { Card, CardImg, CardBody, CardText, CardTitle, Breadcrumb, BreadcrumbItem,Button,Label, Modal, ModalHeader,ModalBody,Row, Col } from 'reactstrap';
 import { Link} from 'react-router-dom';
 import { Control, LocalForm, Errors} from 'react-redux-form';
 import {Loading} from './LoadingComponent';
@@ -165,7 +165,6 @@ class CommentForm extends Component {
       }
 
    const Dishdetail =(props)=> {
-            const dish=props.dish
 
             if (props.isLoading) {
                 return(
