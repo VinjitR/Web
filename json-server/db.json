@@ -201,14 +201,6 @@
       "comment": "It's your birthday, we're gonna party!",
       "author": "25 Cent",
       "date": "2011-12-02T17:57:28.556094Z"
-    },
-    {
-      "dishId": 0,
-      "rating": "5",
-      "author": "Uzumaki Naruto",
-      "comment": "RAMEN WOULD BE GREAT!!!!!",
-      "date": "2020-06-26T19:44:32.130Z",
-      "id": 20
     }
   ],
   "promotions": [
@@ -271,28 +263,6 @@
       "message": "afadsfds",
       "date": "2017-12-04T09:41:49.890Z",
       "id": 1
-    },
-    {
-      "date": "2020-06-26T21:15:21.367Z",
-      "id": 2
-    },
-    {
-      "date": "2020-06-26T21:17:04.170Z",
-      "id": 3
-    },
-    {
-      "date": "2020-06-26T21:25:24.557Z",
-      "id": 4
-    },
-    {
-      "firstname": "Vinjit",
-      "lastname": "Regulagedda",
-      "telnum": "8897707701",
-      "email": "rezoblazo@gmail.com",
-      "agree": true,
-      "contactType": "Email",
-      "message": "This is the test 40",
-      "id": 5
     }
   ]
 }
