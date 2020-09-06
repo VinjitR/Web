@@ -201,6 +201,22 @@
       "comment": "It's your birthday, we're gonna party!",
       "author": "25 Cent",
       "date": "2011-12-02T17:57:28.556094Z"
+    },
+    {
+      "dishId": 0,
+      "rating": "3",
+      "author": "fdewer",
+      "comment": " qwee",
+      "date": "2020-08-29T07:08:10.884Z",
+      "id": 20
+    },
+    {
+      "dishId": 0,
+      "rating": "2",
+      "author": "fdhsssd",
+      "comment": "Feeeback 1\n",
+      "date": "2020-08-29T07:35:24.569Z",
+      "id": 21
     }
   ],
   "promotions": [

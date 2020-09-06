@@ -1,3 +1,5 @@
+import React, { Component } from 'react';
+import { FlatList, ScrollView, Text, View } from 'react-native';
 import { Card, ListItem } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
@@ -62,9 +64,10 @@ function CorporateLeadership(props) {
         return(<View></View>)
     }
 }
+
 class About extends Component{
     static navigationOptions = {
-        title: 'About Us'
+        title: 'About'
     };
     
     render() {
@@ -78,6 +81,6 @@ class About extends Component{
                     />
             </ScrollView>
         );
-    };
+    }
 }
 export default connect(mapStateToProps)(About);

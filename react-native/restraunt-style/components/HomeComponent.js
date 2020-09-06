@@ -31,7 +31,7 @@ function RenderItem(props) {
     
     } 
     else {
-        item = props.item;
+        const item = props.item;
         if (item != null) {
             return(
                 <Card

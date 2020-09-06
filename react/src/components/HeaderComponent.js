@@ -68,7 +68,7 @@ class Header extends Component{
                     <div className="container">
                         <div className='row row-header'>
                             <div className="col-12 col-sm-8">
-                                <h1>Restraunt AcknApp</h1>
+                                <h1 className="header-r">Restraunt AcknApp</h1>
                                 <p>We here make best learning from the best to the best.</p>
                             </div>
                         </div>
