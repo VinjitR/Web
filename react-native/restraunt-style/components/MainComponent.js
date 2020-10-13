@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, Platform, Image, StyleSheet, ScrollView, Text } from 'react-native';
 import { Icon } from 'react-native-elements';
-
 import Menu from './MenuComponent';
 import Dishdetail from './DishdetailComponent';
 import Reservation from './ReservationComponent';
@@ -9,11 +8,10 @@ import Home from './HomeComponent';
 import Contact from './ContactComponent';
 import About from './AboutComponent';
 import Favorites from './FavoriteComponent';
-
+import Login from './LoginComponent';
 import { createDrawerNavigator, createStackNavigator, DrawerItems, SafeAreaView } from 'react-navigation';
 import { connect } from 'react-redux';
 import { fetchComments, fetchDishes, fetchLeaders, fetchPromos } from '../redux/ActionCreators';
-
 const mapStateToProps = state => {
     return {
     }
@@ -30,8 +28,7 @@ const MenuNavigator = createStackNavigator({
             headerLeft: <Icon name='menu' size={24}
                 color='white'
                 onPress={() => navigation.toggleDrawer()}
-                />
-            
+            />
         }) }, 
     Dishdetail: { screen: Dishdetail }, 
 }, {
@@ -60,11 +57,9 @@ const HomeNavigator = createStackNavigator({
         headerLeft: <Icon name='menu' size={24}
             color='white'
             onPress={() => navigation.toggleDrawer()}
-            />
-        
+        />
     })
 });
-
 const ContactNavigator = createStackNavigator({
     Contact: { screen: Contact },
 }, {
@@ -79,11 +74,9 @@ const ContactNavigator = createStackNavigator({
         headerLeft: <Icon name='menu' size={24}
             color='white'
             onPress={() => navigation.toggleDrawer()}
-            />
-        
+        />
     })
 });
-
 const AboutNavigator = createStackNavigator({
     About: { screen: About },
 }, {
@@ -98,11 +91,9 @@ const AboutNavigator = createStackNavigator({
         headerLeft: <Icon name='menu' size={24}
             color='white'
             onPress={() => navigation.toggleDrawer()}
-            />
-        
+        />
     })
 });
-
 const ReservationNavigator = createStackNavigator({
     Reservation: { screen: Reservation },
 }, {
@@ -120,9 +111,26 @@ const ReservationNavigator = createStackNavigator({
         />
     })
 });
-
 const FavoritesNavigator = createStackNavigator({
     Favorites: { screen: Favorites },
+}, {
+    navigationOptions: ({ navigation }) => ({
+        headerStyle: {
+            backgroundColor: '#512DA8'
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+            color: '#fff'
+        },
+        headerLeft: <Icon name='menu' size={24}
+            color='white'
+            onPress={() => navigation.toggleDrawer()}
+        />
+    })
+});
+
+const LoginNavigator = createStackNavigator({
+    Login: { screen: Login },
 }, {
     navigationOptions: ({ navigation }) => ({
         headerStyle: {
@@ -156,7 +164,23 @@ const CustomDrawerContentComponent = (props) => (
         </SafeAreaView>
     </ScrollView>
 );
+
 const MainNavigator = createDrawerNavigator({
+    Login: {
+        screen: LoginNavigator,
+        navigationOptions: {
+            title: 'Login',
+            drawerLabel: 'Login',
+            drawerIcon: ({ tintColor }) => (
+                <Icon
+                    name='sign-in'
+                    type='font-awesome'
+                    size={24}
+                    color={tintColor}
+                />
+            )
+        }
+    },
     Home: {
         screen: HomeNavigator,
         navigationOptions: {
@@ -168,11 +192,11 @@ const MainNavigator = createDrawerNavigator({
                     type='font-awesome'
                     size={24}
                     color={tintColor}
-                    />
-                
+                />
             )
         }
-    },Menu: {
+    },
+    Menu: {
         screen: MenuNavigator,
         navigationOptions: {
             title: 'Menu',
@@ -183,8 +207,7 @@ const MainNavigator = createDrawerNavigator({
                     type='font-awesome'
                     size={24}
                     color={tintColor}
-                    />
-               
+                />
             )
         }    
     },
@@ -199,10 +222,8 @@ const MainNavigator = createDrawerNavigator({
                     type='font-awesome'
                     size={22} // 24 seems a bit big
                     color={tintColor}
-                    />
-                
+                />
             )
-
         }    
     },
     About: {
@@ -216,8 +237,22 @@ const MainNavigator = createDrawerNavigator({
                     type='font-awesome'
                     size={24}
                     color={tintColor}
-                    />
-                
+                />
+            )
+        }    
+    },
+    Favorites: {
+        screen: FavoritesNavigator,
+        navigationOptions: {
+            title: 'My Favorites',
+            drawerLabel: 'My Favorites',
+            drawerIcon: ({ tintColor }) => (
+                <Icon
+                    name='heart'
+                    type='font-awesome'
+                    size={24}
+                    color={tintColor}
+                />
             )
         }    
     },
@@ -234,25 +269,10 @@ const MainNavigator = createDrawerNavigator({
                     color={tintColor}
                 />
             )
-
         }    
     },
-    Favorites: {
-        screen: FavoritesNavigator,
-        navigationOptions: {
-            title: 'Your Favorites',
-            drawerLabel: 'Your Favorites',
-            drawerIcon: ({ tintColor }) => (
-                <Icon
-                    name='heart'
-                    type='font-awesome'
-                    size={24}
-                    color={tintColor}
-                />
-            )
-
-        } 
-},}, {
+}, {
+    initialRouteName: 'Home',
     drawerBackgroundColor: '#D1C4E9',
     contentComponent: CustomDrawerContentComponent,
 })
@@ -265,7 +285,7 @@ class Main extends Component {
     }
     render() {
         return(
-            <View style={{ flex:1 }}>
+            <View style={{ flex:1, paddingTop: Platform.OS === 'ios' ? 0 : Expo.Constants.statusBarHeight }}>
                 <MainNavigator />
             </View>
         )
